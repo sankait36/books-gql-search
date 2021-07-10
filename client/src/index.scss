@@ -99,6 +99,8 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
+  border-right: var(--shadow-dark);
+  margin-right: 4rem;
 }
 
 .list {
@@ -118,4 +120,42 @@ body {
 
 .add_book {
   width: 25%;
+  display: flex;
+  flex-direction: column;
+
+  &--header {
+    margin-bottom: 2rem;
+  }
+}
+
+.field {
+  width: 100%;
+  display: flex;
+  margin-bottom: 4px;
+}
+
+.label {
+  width: 14rem;
+}
+
+.input {
+  width: 100%;
+  font-family: inherit;
+}
+
+.button {
+  margin-top: 2rem;
+  background-color: var(--color-primary-dark);
+  padding: .5rem;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  width: 10rem;
+  text-decoration: none;
+  border-radius: 3px;
+  color: white;
+  align-self: flex-end;
 }
