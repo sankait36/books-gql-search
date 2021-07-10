@@ -4,9 +4,13 @@ import AddBook from "./components/AddBook";
 function App() {
   return (
     <div className="main">
-      <h1>My Reading List</h1>
-      <BookList />
-      <AddBook />
+      <div className="header">
+        <h1>My Reading List</h1>
+      </div>
+      <div className="content">
+        <BookList />
+        <AddBook />
+      </div>
     </div>
   );
 }

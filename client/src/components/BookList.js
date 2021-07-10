@@ -13,15 +13,24 @@ function BookList() {
   if (error) return <p>Error :(</p>;
 
   return (
-    <div>
-      <ul className="book_list">
-        {data.books.map(({ id, name }) => (
-          <li key={id} onClick={() => setSelectedBookId(id)}>{name}</li>
-        ))}
-      </ul>
-      <BookDetails
-        selectedBookId={selectedBookId}
-      />
+    <div className="book_list">
+      <div className="book_list_wrapper">
+        <ul className="list">
+          {data.books.map(({ id, name }) => (
+            <li
+              key={id}
+              onClick={() => setSelectedBookId(id)}
+              className="list__item">
+                <p>{name}</p>
+              </li>
+          ))}
+        </ul>
+      </div>
+      <div className="book_details_wrapper">
+        <BookDetails
+          selectedBookId={selectedBookId}
+        />
+      </div>
     </div>
   );
 }

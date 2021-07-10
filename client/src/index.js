@@ -6,7 +6,7 @@ import {
   ApolloProvider,
 } from "@apollo/client";
 
-import './index.css';
+import './index.scss';
 import App from './App';
 
 const client = new ApolloClient({
