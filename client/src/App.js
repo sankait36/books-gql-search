@@ -1,5 +1,5 @@
 import BookList from "./components/BookList";
-import AddBook from "./components/AddBook";
+import BookFormsContainer from "./components/BookFormsContainer";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       </div>
       <div className="content">
         <BookList />
-        <AddBook />
+        <BookFormsContainer />
       </div>
     </div>
   );
