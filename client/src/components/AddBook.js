@@ -32,7 +32,7 @@ function AddBook() {
     <form className="add_book" onSubmit={handleSubmitComplete}>
       <h2 className="add_book--header">Add a book</h2>
       <div className="field">
-        <label className="label">Book Name:</label>
+        <label className="label">Name:</label>
         <input
           className="input"
           type="text"

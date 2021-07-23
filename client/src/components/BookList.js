@@ -21,8 +21,8 @@ function BookList() {
               key={id}
               onClick={() => setSelectedBookId(id)}
               className="list__item">
-                <p>{name}</p>
-              </li>
+              <p>{name}</p>
+            </li>
           ))}
         </ul>
       </div>
