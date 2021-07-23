@@ -12,7 +12,7 @@ function AddBook() {
     addAuthorMut({
       variables: {
         name,
-        age,
+        age: Number(age),
       },
       refetchQueries: [{ query: getAuthorsQuery }]
     }).catch((err) => console.log({ err }))

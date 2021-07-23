@@ -1,16 +1,29 @@
 import {
   useQuery,
+  useMutation,
 } from "@apollo/client";
 import BookDetails from "./BookDetails";
-import { getBooksQuery } from "../queries/queries";
+import { getBooksQuery, deleteBookMutation } from "../queries/queries";
 import { useState } from "react";
 
 function BookList() {
   const [selectedBookId, setSelectedBookId] = useState(null);
+  const [deleteBookMut,] = useMutation(deleteBookMutation);
+
   const { loading, error, data } = useQuery(getBooksQuery);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error :(</p>;
+
+  const handleDeleteClick = (bookId) => {
+    setSelectedBookId(null);
+    deleteBookMut({
+      variables: {
+        bookId,
+      },
+      refetchQueries: [{ query: getBooksQuery }]
+    }).catch((err) => console.log({ err }))
+  };
 
   return (
     <div className="book_list">
@@ -21,7 +34,8 @@ function BookList() {
               key={id}
               onClick={() => setSelectedBookId(id)}
               className="list__item">
-              <p>{name}</p>
+              <p className="list__text">{name}</p>
+              <p className="list__delete" onClick={() => handleDeleteClick(id)}>X</p>
             </li>
           ))}
         </ul>
