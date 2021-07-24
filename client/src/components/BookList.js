@@ -16,7 +16,9 @@ function BookList() {
   if (error) return <p>Error :(</p>;
 
   const handleDeleteClick = (bookId) => {
-    setSelectedBookId(null);
+    if (bookId === selectedBookId) {
+      setSelectedBookId(null);
+    }
     deleteBookMut({
       variables: {
         bookId,
@@ -30,11 +32,8 @@ function BookList() {
       <div className="book_list_wrapper">
         <ul className="list">
           {data.books.map(({ id, name }) => (
-            <li
-              key={id}
-              onClick={() => setSelectedBookId(id)}
-              className="list__item">
-              <p className="list__text">{name}</p>
+            <li key={id} className="list__item">
+              <p className="list__text" onClick={() => setSelectedBookId(id)}>{name}</p>
               <p className="list__delete" onClick={() => handleDeleteClick(id)}>X</p>
             </li>
           ))}
