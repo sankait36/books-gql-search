@@ -37,6 +37,7 @@ function AddBook() {
           className="input"
           type="text"
           value={name}
+          required
           onChange={(e) => setName(e.target.value)}
         />
       </div>
@@ -46,12 +47,18 @@ function AddBook() {
           className="input"
           type="text"
           value={genre}
+          required
           onChange={(e) => setGenre(e.target.value)}
         />
       </div>
       <div className="field">
         <label className="label">Author:</label>
-        <select className="input" defaultValue="" onChange={(e) => setAuthorId(e.target.value)}>
+        <select
+          className="input"
+          defaultValue=""
+          required
+          onChange={(e) => setAuthorId(e.target.value)}
+        >
           <option value="" disabled>Select an author</option>
           {data.authors.map(({ name, id }) => (
             <option value={id} key={id}>{name}</option>

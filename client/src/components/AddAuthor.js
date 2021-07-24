@@ -27,6 +27,7 @@ function AddBook() {
           className="input"
           type="text"
           value={name}
+          required
           onChange={(e) => setName(e.target.value)}
         />
       </div>
@@ -38,6 +39,7 @@ function AddBook() {
           min="1"
           max="100"
           value={age}
+          required
           onChange={(e) => setAge(e.target.value)}
         />
       </div>
