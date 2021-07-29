@@ -34,6 +34,7 @@ function BookList() {
           {data.books.map(({ id, name }) => (
             <li key={id} className="list__item">
               <p className="list__text" onClick={() => setSelectedBookId(id)}>{name}</p>
+              <div className="list__pad" />
               <p className="list__delete" onClick={() => handleDeleteClick(id)}>X</p>
             </li>
           ))}

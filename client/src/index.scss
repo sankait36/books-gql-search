@@ -18,14 +18,11 @@
   --line-dark: 1px solid var(--color-grey-dark-3);
 }
 
-$bp-largest: 75em; // 1200px
-$bp-large: 68.75em;
+$bp-xl: 75em; // 1200px
+$bp-large: 68.75em; //
 $bp-medium: 56.25em; // 900px
 $bp-small: 37.5em; // 600px
-$bp-small: 37.5em; // 600px
-$bp-smallest: 31.25em; //500px
-$bp-xsmall: 28.125em; //500px
-$bp-xxsmall: 26.5625em; //500px
+$bp-xs: 31.25em; //500px
 
 * {
   margin: 0;
@@ -71,7 +68,7 @@ body {
 
   min-height: 60rem;
 
-  @media only screen and (max-width: $bp-largest) {
+  @media only screen and (max-width: $bp-xl) {
     margin: 0;
     max-width: 100%;
     width: 100%;
@@ -83,6 +80,10 @@ body {
   display: flex;
   align-items: center;
   font-size: 1.6rem;
+
+  @media only screen and (max-width: $bp-small) {
+    justify-content: center;
+  }
 }
 
 .content {
@@ -90,6 +91,10 @@ body {
   display: flex;
   flex: 1;
   font-size: 1.4rem;
+
+  @media only screen and (max-width: $bp-medium) {
+    flex-direction: column;
+  }
 }
 
 .book_list_wrapper {
@@ -102,21 +107,32 @@ body {
   flex-direction: column;
   border-right: var(--line-dark);
   margin-right: 4rem;
+  @media only screen and (max-width: $bp-medium) {
+    border-right: none;
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
 }
 
 .list {
   list-style: none;
   display: grid;
   gap: 1rem;
+  font-size: 1.6rem;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 
   &__item {
     display: flex;
+    width: 100%;
+  }
+
+  &__pad {
+    flex: 1;
   }
 
   &__text {
     display: inline-block;
-    width: 100%;
+    padding-right: 2rem;
     &:hover {
       cursor: pointer;
     }
@@ -124,6 +140,7 @@ body {
 
   &__delete {
     margin-right: 2rem;
+    padding: 0 0 1rem 0;
     &:hover {
       cursor: pointer;
     }
@@ -139,6 +156,15 @@ body {
   width: 25%;
   display: flex;
   flex-direction: column;
+  @media only screen and (max-width: $bp-medium) {
+    border-top: var(--line-dark);
+    padding-top: 2rem;
+    width: 100%;
+    flex-direction: row;
+  }
+  @media only screen and (max-width: $bp-small) {
+    flex-direction: column;
+  }
 }
 
 .add_book {
@@ -157,6 +183,15 @@ body {
 
   &--header {
     margin-bottom: 2rem;
+  }
+
+  @media only screen and (max-width: $bp-medium) {
+    margin-top: 0;
+    margin-left: 8rem;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    margin-left: 0;
   }
 }
 
