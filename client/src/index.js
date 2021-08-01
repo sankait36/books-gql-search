@@ -9,8 +9,10 @@ import {
 import './index.scss';
 import App from './App';
 
+const serverPort = process.env.GQL_SERVER_PORT || 4000;
+
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: `http://localhost:${serverPort}/graphql`,
   cache: new InMemoryCache({
     typePolicies: {
       Query: {
